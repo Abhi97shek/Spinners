@@ -1,0 +1,324 @@
+body{
+  background: orange;
+}
+h1
+{
+padding: 10px;
+}
+.main
+{
+  width:100%;
+  height:200px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 10px 100px 0px black;
+
+}
+.spinner
+{
+  width:50px;
+  height:50px;
+  background: #eee;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.spinner-1::before
+{
+  content:'';
+  width:50px;
+  height:50px;
+  position:absolute;
+  top:-2px;
+  left:-2px;
+
+  margin: 0px;
+  padding: 0px;
+  display:block;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-top-color: orange;
+  border-bottom-color:orange;
+  animation: spinny 1s linear 0s infinite;
+}
+
+@keyframes spinny {
+  0%
+  {
+    transform: rotate(0deg) scale(1);
+  }
+  50%
+  {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100%
+  {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.spinner-2
+{
+  border: 2px solid #eee;
+  background-color: #fff;
+}
+
+.spinner-2::before
+{
+  content:' ';
+  background-color: red;
+  width: 2px;
+  height: 35px;
+  display:block;
+  position: absolute;
+  border-radius: 4px;
+  top:50%;
+  left: 50%;
+  transform-origin: top;
+  animation: spin2 1s linear 0s infinite;
+}
+
+@keyframes spin2 {
+  0%
+  {
+    transform: rotate(0);
+  }
+  100%
+  {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.spinner-3::before{
+  content:' ';
+  display:block;
+  background-color: red;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  animation: zoom 2s linear 0s infinite;
+}
+.spinner-3::after
+{
+  content:'';
+  display:block;
+  background-color: red;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  animation: zoom 2s linear 2.3s infinite;
+  opacity: 0;
+}
+
+@keyframes zoom {
+
+  0%
+  {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100%
+  {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+.spinner-4
+{
+  height: 0px;
+  width: 0px;
+}
+
+span{
+  height: 10px;
+  width: 10px;
+  background-color: #eee;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+}
+span:nth-child(3)
+{
+  left: 40px;
+  animation: bounce 1s ease-in-out 0.666s infinite;
+}
+span:nth-child(2)
+{
+  left: 20px;
+  animation: bounce 1s ease-in-out 0.333s infinite;
+}
+span:nth-child(1)
+{
+  left: 0px;
+  animation: bounce 1s ease-in-out 0s infinite;
+}
+
+@keyframes bounce {
+  0%
+  {
+    transform: translateY(0);
+  }
+  50%
+  {
+    transform: translateY(-20px);
+  }
+  100%
+  {
+    transform: translateY(0);
+  }
+
+}
+
+.spinner-5
+{
+  margin-left: 40px;
+animation: myspin 2s linear 0s infinite;
+
+}
+
+.spinner-5::before
+{
+  content:  ' ';
+  width: 10px;
+  height: 10px;
+  display:inline-block;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top:-4px;
+  left: 50%;
+  margin-left: -5px;
+  animation:  bouncy 1s ease-in 0s infinite;
+
+
+}
+.spinner-5::after
+{
+  content:' ';
+  width: 10px;
+  height: 10px;
+  display:inline-block;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -5px;
+  animation:bouncy 0.5s ease-in 0s infinite,
+
+}
+
+@keyframes bouncy {
+  0%
+  {
+    transform: translateY(0px);
+  }
+  50%
+  {
+    transform: translateY(20px);
+  }
+  100%
+  {
+    transform: translateY(0px);
+  }
+}
+@keyframes myspin {
+  0%
+  {
+    transform: rotate(0deg);
+  }
+  100%
+  {
+    transform: rotate(360deg);
+  }
+}
+
+.loader{
+  border-top:5px dotted #eee;
+  width: 100px;
+  height: 8px;
+  display: inline-block;
+
+  position: relative;
+}
+.loader::before
+{
+  content: ' ';
+  width: 0px;
+  height: 0px;
+  border:15px solid orange;
+  display: inline-block;
+  position: absolute;
+  top:-18px;
+  left:-10px;
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-right-color:transparent;
+  animation: movedown 0.8s ease-in-out 0s infinite,
+  run 2s linear 0s infinite;
+
+}
+.loader::after
+{
+  content: ' ';
+  width: 0px;
+  height: 0px;
+  border:15px solid orange;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  top:-18px;
+  left:-10px;
+  border-top-color: transparent;
+  border-right-color:transparent;
+  animation: moveup 0.8s ease-in-out 0s infinite,
+  run 2s linear 0s infinite;
+}
+
+@keyframes moveup {
+  0%
+  {
+    transform: rotate(10deg);
+  }
+  50%
+  {
+    transform: rotate(-45deg);
+  }
+  100%
+  {
+    transform: rotate(10deg);
+  }
+}
+@keyframes movedown {
+  0%
+  {
+    transform: rotate(-20deg);
+  }
+  50%
+  {
+    transform: rotate(40deg);
+  }
+  100%
+  {
+    transform: rotate(-20deg);
+  }
+}
+@keyframes run {
+  0%
+  {
+    left: 0%;
+  }
+  100%
+  {
+    left: 100%;
+  }
+}
